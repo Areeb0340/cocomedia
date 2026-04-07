@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import cocobinoLogo from "@/assets/cocobino-logo.png";
-const navItems = ["About", "Services", "Process", "FAQ"];
+
+const navItems = [
+  { name: "About", id: "about" },
+  { name: "Services", id: "services" },
+  { name: "Process", id: "process" },
+  { name: "FAQ", id: "faq" },
+];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -11,10 +18,6 @@ const Navbar = () => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <motion.nav
@@ -26,20 +29,45 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2">
+        
+        {/* Logo */}
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex items-center gap-2"
+        >
           <img src={cocobinoLogo} alt="Cocobino Media" className="w-8 h-8 rounded-lg" />
-          <span className="font-heading text-xl font-bold text-gradient">Cocobino Media</span>
+          <span className="font-heading text-xl font-bold text-gradient">
+            Cocobino Media
+          </span>
         </button>
+
+        {/* Nav Links */}
         <div className="hidden md:flex items-center gap-8">
+          
           {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollTo(item)}
+            <a
+              key={item.name}
+              href={`#${item.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById(item.id)?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
-              {item}
-            </button>
+              {item.name}
+            </a>
           ))}
+
+          {/* ✅ Policies Link (separate page) */}
+          <NavLink
+            to="/policies"
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+          >
+            Policies
+          </NavLink>
+
         </div>
       </div>
     </motion.nav>

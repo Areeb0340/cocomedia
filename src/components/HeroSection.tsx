@@ -49,12 +49,12 @@ const HeroSection = () => {
           >
             Our Services
           </button>
-          <button
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="px-8 py-3 rounded-lg border border-border text-foreground font-heading font-semibold hover:border-primary/50 transition-colors"
-          >
-            Get In Touch
-          </button>
+        <button
+  onClick={() => window.location.href = '/policies'}
+  className="px-8 py-3 rounded-lg border border-border text-foreground font-heading font-semibold hover:border-primary/50 transition-colors"
+>
+  Our Policies
+</button>
         </motion.div>
       </div>
 
