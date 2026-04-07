@@ -176,7 +176,7 @@ const Policies = () => {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-[#0d0d0d] text-white">
+    <div className="min-h-screen bg-[#0d0d0d] text-white mt-5">
       {/* Hero Header */}
       <div className="bg-[#111111] border-b border-[#2a2a2a] py-16 px-6 text-center">
         <p className="text-[#E8820C] text-sm font-semibold tracking-[0.2em] uppercase mb-3">
