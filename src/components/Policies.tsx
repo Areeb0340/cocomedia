@@ -260,9 +260,9 @@ const Policies = () => {
           <p className="text-gray-400 text-sm leading-relaxed">
             For any questions regarding these policies, please reach out to us at{" "}
             <a href="mailto:hello@cocobinomedia.com" className="text-[#E8820C] hover:underline">
-              hello@cocobinomedia.com
+                Info@cocobinomedia.com
             </a>
-            . Last updated: April 2026.
+      
           </p>
         </div>
       </div>
